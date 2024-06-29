@@ -10,7 +10,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div role="headerContainer">
+      <div role="headerContainer" className='headerContainer'>
         <Header />
       </div>
       <div role="bannerContainer">
