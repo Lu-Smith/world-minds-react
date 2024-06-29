@@ -5,9 +5,12 @@ import App from '../App';
 describe('renders App components correctly', () => {
     it('renders without crashing', () => {
       render(<App />);
-      
-      const headerComponent = screen.getByRole('bannerContainer');
+
+      const headerComponent = screen.getByRole('headerContainer');
       expect(headerComponent).toBeInTheDocument();
+      
+      const bannerComponent = screen.getByRole('bannerContainer');
+      expect(bannerComponent).toBeInTheDocument();
   
       const mainComponent = screen.getByRole('mainContainer');
       expect(mainComponent).toBeInTheDocument();
