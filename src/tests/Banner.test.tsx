@@ -14,6 +14,5 @@ describe('renders Banner components correctly', () => {
       expect(bannerImage).toHaveAttribute('src', expect.stringContaining('banner.mp4'));
       expect(bannerImage).toHaveAttribute('autoPlay');
       expect(bannerImage).toHaveAttribute('loop');
-
     });
 });
