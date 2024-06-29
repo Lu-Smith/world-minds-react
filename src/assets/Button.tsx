@@ -22,13 +22,13 @@ const ButtonElement = styled.button`
 `;
 
 
-const Button: React.FC<{  onClick?: () => void, children: string }> = ({ onClick, children }) => {
+const Button: React.FC<{  onClick?: () => void, children: string, role: string }> = ({ onClick, children, role }) => {
   return (
     <motion.div
            initial={{ scale: 1, opacity: 1 }}
            whileHover={{ scale: 0.9, opacity: 0.8 }}
            transition={{ duration: 0.6 }}>
-      <ButtonElement onClick={onClick} >{children}</ButtonElement>
+      <ButtonElement onClick={onClick} role={role}>{children}</ButtonElement>
     </motion.div>
   )
 }
