@@ -3,22 +3,20 @@ import styled from 'styled-components';
 import { motion } from "framer-motion";
 
 const ButtonElement = styled.button`
-	background: #596e79;
+	background: #2b2b91;
   color: #f0ece2;
-  font-size: 0.8em;
+  font-size: 0.9em;
   padding: 0.8em 1.2em;
   margin: 0.5em;
   border: none;
-  border-radius: 15px;
-  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 35px;
   cursor: pointer;
   transition: 200ms all ease;
+  letter-spacing: 2px;
 
   &:hover {
-    box-shadow: none;
-    background: black;
+    background: #781E36;
   }
-
 `;
 
 
