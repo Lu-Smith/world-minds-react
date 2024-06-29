@@ -8,7 +8,7 @@ const HelpersWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   color: #f0ece2; 
-  background: #596e79;
+  background: #781E36;
   max-width: 900px;
   margin: 0 auto;
 `;
@@ -16,6 +16,8 @@ const HelpersWrapper = styled.div`
 const ContactContainer = styled.ul`
   list-style: none;
   text-align: center;
+  letter-spacing: 1px;
+  width: 45vw;
 `;
 
 const ContactLi = styled.li`
@@ -25,6 +27,8 @@ const ContactLi = styled.li`
 
   &:hover {
     color: black; 
+    font-weight: bold;
+    letter-spacing: 0;
   }
 `;
 
@@ -32,6 +36,8 @@ const HelpersContainer = styled.ul`
   padding: 1em;
   list-style: none;
   text-align: center;
+  width: 45vw;
+  border-left: 2px solid black;
 `;
 
 const ListLi = styled.li`
@@ -41,6 +47,8 @@ const ListLi = styled.li`
 
   &:hover {
     color: black; 
+    font-weight: bold;
+    letter-spacing: 0;
   }
 `;
 
