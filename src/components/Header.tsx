@@ -7,8 +7,11 @@ const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
+  width: 100vw;
+  color: white;
+  padding: 0 30px;
 `;
 
 const LogoContainer = styled.div`
@@ -16,11 +19,20 @@ const LogoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  div {
+    font-size: 30px;
+    padding-top: 10px;
+    color: #2b2b91;
+
+    &:hover {
+      color: #781E36;
+    }
+  }
 `;
 
 const Title = styled.h1`
   font-size: 1.8em;
-  color: black; 
   text-align: left;
   font-family: "Playwrite US Modern", cursive;
   letter-spacing: 1px;
@@ -34,20 +46,18 @@ const MenuContainer = styled.div`
 `;
 
 const Menu = styled.ul`
-  color: black; 
   text-align: left;
-  font-family: "Playwrite US Modern", cursive;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 10px;
+  gap: 15px;
 `;
 
 const MenuLink = styled.li`
   letter-spacing: 1px;
-  font-size: 1.2em;
+  font-size: 0.8em;
 `;
 
 const Header: React.FC = () => {
@@ -59,7 +69,7 @@ const Header: React.FC = () => {
         </Title>
         <div><BiWorld /></div>
         <Title data-testid='logo2'>
-          orld Minds
+          rld Minds
         </Title>
       </LogoContainer>
       <MenuContainer role='menuContainer'>
@@ -68,9 +78,9 @@ const Header: React.FC = () => {
           <MenuLink data-testid='discover'>Discover</MenuLink>
           <MenuLink data-testid='gallery'>Gallery</MenuLink>
           <MenuLink data-testid='contact'>Contact</MenuLink>
+          <MenuLink><Button role='join'>Join</Button></MenuLink>
         </Menu>
       </MenuContainer>
-      <Button role='join'>Join</Button>
     </HeaderContainer>
   )
 }
