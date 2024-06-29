@@ -2,17 +2,17 @@ import Footer from "./components/Footer"
 import Header from "./components/Header"
 import Main from "./components/Main"
 
-const App = () => {
+const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div role="banner">
+      <div role="bannerContainer">
         <Header />
       </div>
-      <div role="main">
+      <div role="mainContainer">
         <Main />
       </div>
-      <div role="footer">
+      <div role="footerContainer">
         <Footer />
       </div>
     </div>
