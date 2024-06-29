@@ -6,13 +6,13 @@ describe('renders App components correctly', () => {
     it('renders without crashing', () => {
       render(<App />);
       
-      const headerComponent = screen.findByRole('header');
-      expect(headerComponent).toBeDefined();
+      const headerComponent = screen.getByRole('banner');
+      expect(headerComponent).toBeInTheDocument();
   
-      const mainComponent = screen.findByRole('main');
-      expect(mainComponent).toBeDefined();
+      const mainComponent = screen.getByRole('main');
+      expect(mainComponent).toBeInTheDocument();
   
-      const footerComponent = screen.findByRole('footer');
-      expect(footerComponent).toBeDefined();
+      const footerComponent = screen.getByRole('footer');
+      expect(footerComponent).toBeInTheDocument();
     });
 });
