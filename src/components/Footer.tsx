@@ -27,9 +27,9 @@ const Footer: React.FC = () => {
       <FooterHelpers />
       <FooterText>
         Coded by
-        <FooterLink href='https://www.lunasmithart.com' target='_blank'>Luna Smith</FooterLink>
+        <FooterLink href='https://www.lunasmithart.com' target='_blank' role='portfolio'>Luna Smith</FooterLink>
         , open-source on
-        <FooterLink href='https://github.com/Lu-Smith/world-minds-react' target='_blank'>GitHub</FooterLink>.
+        <FooterLink href='https://github.com/Lu-Smith/world-minds-react' target='_blank' role='GitHub'>GitHub</FooterLink>.
       </FooterText>
     </>
   )
