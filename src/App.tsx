@@ -1,16 +1,19 @@
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import Main from "./components/Main"
 
 const App = () => {
 
   return (
     <div className="App">
       <div role="header">
-        <h1>World Minds</h1>
+        <Header />
       </div>
       <div role="main">
-        <p>main</p>
+        <Main />
       </div>
       <div role="footer">
-        <p>footer</p>
+        <Footer />
       </div>
     </div>
   )
