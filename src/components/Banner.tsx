@@ -42,7 +42,7 @@ const Banner: React.FC = () => {
       <BannerContentContainer>
         <BannerTitle>Welcome to World Minds</BannerTitle>
         <BannerSubTitle>Open your mind and find yourself</BannerSubTitle>
-        <Button role='join'>Join</Button>
+        <Button role='join'>Get in touch</Button>
       </BannerContentContainer>
     </BannerImageContainer>
   )
