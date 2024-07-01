@@ -54,7 +54,7 @@ const ListLi = styled.li`
 
 const FooterHelpers: React.FC = () => {
   return (
-    <HelpersWrapper>
+    <HelpersWrapper role='footerHelpers' >
       <ContactContainer data-testid='contactContainer'>
         <ContactLi role='contactLink'>Contact us</ContactLi>
         <ContactLi data-testid='phoneNumber'>+1-543-123-4567</ContactLi>
