@@ -20,7 +20,7 @@ const SocialMediaContainer = styled.div`
 
 const SocialMedia: React.FC = () => {
   return (
-    <SocialMediaContainer>
+    <SocialMediaContainer role='socialMedia'>
       <FooterLink href="//www.facebook.com/lunasmithart" target="_blank" aria-label="Facebook page" role="facebook" >
         <FaFacebook />
       </FooterLink>
