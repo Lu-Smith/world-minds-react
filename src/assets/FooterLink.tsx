@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from "framer-motion";
 
 const FooterLinkElement = styled.a`
-  color: #2b2b91;
+  color: #e3e3e3;
   padding: 0.4em 0.5em;
   text-decoration: none;
   transition: 200ms all ease;
@@ -11,7 +11,7 @@ const FooterLinkElement = styled.a`
   font-size: 1.2em;
 
   &:hover {
-    color: #781E36;
+    color: #668ba4; 
   }
 `;
 
