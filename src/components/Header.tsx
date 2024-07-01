@@ -23,7 +23,7 @@ const LogoContainer = styled.div`
   div {
     font-size: 30px;
     padding-top: 10px;
-    color: #2b2b91;
+    color: #668ba4; 
 
     &:hover {
       color: #781E36;
