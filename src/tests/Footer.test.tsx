@@ -12,5 +12,11 @@ describe('renders Footer components correctly', () => {
       const gitHubLink = screen.getByRole('GitHub');
       expect(gitHubLink).toBeVisible();
 
+      const SocialMediaContainer = screen.getByRole('socialMedia');
+      expect(SocialMediaContainer ).toBeVisible();
+
+      const footerHelpersContainer = screen.getByRole('footerHelpers');
+      expect(footerHelpersContainer ).toBeVisible();
+
     });
 });
