@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from "framer-motion";
 
 const ButtonElement = styled.button`
-	background: #2b2b91;
+	background: #668ba4; 
   color: #f0ece2;
   font-size: 0.9em;
   padding: 0.8em 1.2em;
