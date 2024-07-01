@@ -8,7 +8,7 @@ const HelpersWrapper = styled.div`
   align-items: center;
   justify-content: space-around;
   color: #f0ece2; 
-  background: #781E36;
+  background: #233142;
   max-width: 900px;
   margin: 0 auto;
 `;
