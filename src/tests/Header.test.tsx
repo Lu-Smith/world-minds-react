@@ -32,7 +32,5 @@ describe('renders Header components correctly', () => {
 
       const joinButton = screen.getByRole('join');
       expect(joinButton).toBeVisible();
-
-
     });
 });
