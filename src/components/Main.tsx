@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import Button from '../assets/Button';
 import mainContent from '../assets/mainContent';
 
-const SectorContainer = styled.div`
+const SectorContainer = styled.div<{ reverse?: boolean }>`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
   align-items: center;
   justify-content: space-around;
   gap: 20px;
@@ -17,6 +17,7 @@ const SectorContainer = styled.div`
   border: 2px solid #668ba4;
   border-radius: 20px;
   margin-bottom: 20px;
+  background: ${({ reverse }) => (reverse ? '#233142' : 'none')};
 `;
 
 const SectorContentContainer = styled.div`
@@ -33,8 +34,8 @@ const SectorTitle = styled.h2`
   font-size: 1em;
 `;
 
-const SectorSubTitle = styled.h2`
-  color: #2b2b91;
+const SectorSubTitle = styled.h2<{ reverse?: boolean }>`
+  color: ${({ reverse }) => (reverse ? 'black' : '#2b2b91')};
   font-size: 2em;
 `;
 
@@ -57,10 +58,10 @@ const Main: React.FC = () => {
   return (
     <div>
       {mainContent.map((content, index) => (
-        <SectorContainer role='sector' key={index}>
+        <SectorContainer role='sector' key={index} reverse={index % 2 === 1}>
           <SectorContentContainer >
             <SectorTitle>{content.title}</SectorTitle>
-            <SectorSubTitle>{content.subtitle}</SectorSubTitle>
+            <SectorSubTitle reverse={index % 2 === 1}>{content.subtitle}</SectorSubTitle>
             <SectorDescription>{content.content}</SectorDescription>
             <Button role='button'>{content.button}</Button>
           </SectorContentContainer>
