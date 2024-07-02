@@ -36,6 +36,14 @@ const Title = styled.h1`
   text-align: left;
   font-family: "Playwrite US Modern", cursive;
   letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 1.3em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.8em;
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -53,11 +61,34 @@ const Menu = styled.ul`
   justify-content: center;
   list-style: none;
   gap: 15px;
+
+  @media (max-width: 768px) {
+    gap: 10px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 8px;
+  }
 `;
 
 const MenuLink = styled.li`
   letter-spacing: 1px;
   font-size: 0.8em;
+  transition: 400ms all ease-out;
+
+  &:hover {
+    border-bottom: 2px solid #2b2b91;
+    padding-bottom: 10px;
+    color: rgba(250, 250, 250, 0.8);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.7em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.6em;
+  }
 `;
 
 const Header: React.FC = () => {
