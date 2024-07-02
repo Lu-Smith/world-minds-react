@@ -3,12 +3,17 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import { motion } from "framer-motion";
+import { motion, useScroll } from "framer-motion";
 
 const App: React.FC = () => {
+  const { scrollYProgress } = useScroll();
 
   return (
     <div className="App">
+      <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+      />
       <motion.div role="headerContainer" className='headerContainer'
         initial={{opacity: 0, y: -100}}
         animate={{opacity: 1, y: 0}}
