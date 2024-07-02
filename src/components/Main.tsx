@@ -18,6 +18,12 @@ const SectorContainer = styled.div<{ reverse?: boolean }>`
   border-radius: 20px;
   margin-bottom: 20px;
   background: ${({ reverse }) => (reverse ? '#233142' : 'none')};
+
+  @media (max-width: 768px) {
+    flex-direction: ${({ reverse }) => (reverse ? 'column-reverse' : 'column')};
+    height: auto; 
+    padding: 40px;
+  }
 `;
 
 const SectorContentContainer = styled.div`
@@ -32,20 +38,37 @@ const SectorContentContainer = styled.div`
 const SectorTitle = styled.h2`
   color: #668ba4;
   font-size: 1em;
+
+  @media (max-width: 768px) {
+    font-size: 0.8em;
+  }
 `;
 
 const SectorSubTitle = styled.h2<{ reverse?: boolean }>`
   color: ${({ reverse }) => (reverse ? 'black' : '#2b2b91')};
   font-size: 2em;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 1.6em;
+  }
 `;
 
 const SectorDescription = styled.p`
   font-size: 1em;
   text-align: left;
+
+  @media (max-width: 768px) {
+    font-size: 0.8em;
+  }
 `;
 
 const SectorImageContainer = styled.div`
   flex: 2;
+
+  @media (max-width: 768px) {
+    width: 60%;
+  }
 `;
 
 const SectorImage = styled.img`
