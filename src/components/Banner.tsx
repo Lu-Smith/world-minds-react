@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BannerVideo from '../assets/media/banner.mp4';
 import Button from '../assets/Button';
+import { motion } from "framer-motion";
 
 const BannerImageContainer = styled.div`
   background-color: black;
@@ -35,6 +36,20 @@ const BannerTitle = styled.h1`
   font-size: 1.8em;
   font-family: "Playwrite US Modern", cursive;
   letter-spacing: 1px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #668ba4; 
+  }
 
   @media (max-width: 768px) {
     font-size: 1.5em;
@@ -67,7 +82,17 @@ const Banner: React.FC = () => {
     <BannerImageContainer role='bannerImageContainer'>
       <BannerImage src={BannerVideo} autoPlay loop muted />
       <BannerContentContainer>
-        <BannerTitle>Welcome to World Minds</BannerTitle>
+        <BannerTitle>Welcome to 
+          <span>
+            World 
+            <motion.div
+              initial={{opacity: 0, x: 30, y: -30, scale: 1}}
+              whileInView={{opacity: 1, x: 0, y: 0}}
+              whileHover={{scale: 1.2}}
+              transition={{duration: 1}}
+            >Minds</motion.div>
+          </span>
+        </BannerTitle>
         <BannerSubTitle>Open your mind and find yourself</BannerSubTitle>
         <Button role='join'>Get in touch</Button>
       </BannerContentContainer>
