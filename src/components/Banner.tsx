@@ -82,7 +82,7 @@ const Banner: React.FC = () => {
     <BannerImageContainer role='bannerImageContainer'>
       <BannerImage src={BannerVideo} autoPlay loop muted />
       <BannerContentContainer>
-        <BannerTitle>Welcome to 
+        <BannerTitle role='title'>Welcome to 
           <span>
             World 
             <motion.div
