@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../assets/Button';
 import { BiWorld } from "react-icons/bi";
+import { motion } from "framer-motion";
 
 const HeaderContainer = styled.div`
   display: flex;
@@ -82,6 +83,11 @@ const MenuLink = styled.li`
     color: rgba(250, 250, 250, 0.8);
   }
 
+  &:hover.joinButton {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
   @media (max-width: 768px) {
     font-size: 0.7em;
   }
@@ -98,7 +104,14 @@ const Header: React.FC = () => {
         <Title data-testid='logo1'>
           W
         </Title>
-        <div><BiWorld /></div>
+        <motion.div
+          initial={{opacity: 0, y: -100, scale: 1}}
+          animate={{opacity: 1, y: 0}}
+          whileHover={{scale: 0.5}}
+          transition={{duration: 1}}
+        >
+          <BiWorld />
+        </motion.div>
         <Title data-testid='logo2'>
           rld Minds
         </Title>
@@ -109,7 +122,7 @@ const Header: React.FC = () => {
           <MenuLink data-testid='discover'>Discover</MenuLink>
           <MenuLink data-testid='gallery'>Gallery</MenuLink>
           <MenuLink data-testid='contact'>Contact</MenuLink>
-          <MenuLink><Button role='join'>Join</Button></MenuLink>
+          <MenuLink className='joinButton'><Button role='join'>Join</Button></MenuLink>
         </Menu>
       </MenuContainer>
     </HeaderContainer>
