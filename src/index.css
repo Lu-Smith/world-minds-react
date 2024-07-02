@@ -42,5 +42,16 @@ body {
   z-index: 1;
 }
 
+.progress-bar {
+  position: fixed;
+  top: 200px;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: var(--red);
+  transform-origin: 0%;
+  z-index: 100;
+}
+
 
 
