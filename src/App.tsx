@@ -3,25 +3,32 @@ import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
-
+import { motion } from "framer-motion";
 
 
 const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div role="headerContainer" className='headerContainer'>
+      <motion.div role="headerContainer" className='headerContainer'
+        initial={{opacity: 0, y: -100}}
+        animate={{opacity: 1, y: 0}}
+        transition={{duration: 1}}
+      >
         <Header />
-      </div>
+      </motion.div>
       <div role="bannerContainer">
         <Banner />
       </div>
       <div role="mainContainer">
         <Main />
       </div>
-      <div role="footerContainer">
+      <motion.div role="footerContainer"
+       initial={{opacity: 0, y: 100}}
+       whileInView={{opacity: 1, y: 0}}
+       transition={{duration: 1}}>
         <Footer />
-      </div>
+      </motion.div>
     </div>
   )
 }
