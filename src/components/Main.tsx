@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Button from '../assets/Button';
 import mainContent from '../assets/mainContent';
+import { motion } from "framer-motion";
 
-const SectorContainer = styled.div<{ reverse?: boolean }>`
+const SectorContainer = styled.div<{ reverse?: string }>`
   display: flex;
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
   align-items: center;
@@ -44,7 +45,7 @@ const SectorTitle = styled.h2`
   }
 `;
 
-const SectorSubTitle = styled.h2<{ reverse?: boolean }>`
+const SectorSubTitle = styled.h2<{ reverse?: string }>`
   color: ${({ reverse }) => (reverse ? 'black' : '#2b2b91')};
   font-size: 2em;
   text-align: left;
@@ -79,21 +80,28 @@ const SectorImage = styled.img`
 
 const Main: React.FC = () => {
   return (
-    <div>
+    <>
       {mainContent.map((content, index) => (
-        <SectorContainer role='sector' key={index} reverse={index % 2 === 1}>
-          <SectorContentContainer >
-            <SectorTitle>{content.title}</SectorTitle>
-            <SectorSubTitle reverse={index % 2 === 1}>{content.subtitle}</SectorSubTitle>
-            <SectorDescription>{content.content}</SectorDescription>
-            <Button role='button'>{content.button}</Button>
-          </SectorContentContainer>
-          <SectorImageContainer>
-            <SectorImage src={content.src} alt={content.title} />
-        </SectorImageContainer>
-       </SectorContainer>
+        <motion.div key={index} 
+          initial={{opacity: 0, scale: 0.5}}
+          whileInView={{opacity: 1, scale: 1}}
+          transition={{duration: 1}}
+        >
+          <SectorContainer role='sector' reverse={index % 2 === 1 ? true.toString() : undefined}>
+              <SectorContentContainer >
+                <SectorTitle>{content.title}</SectorTitle>
+                <SectorSubTitle reverse={index % 2 === 1 ? true.toString() : undefined}>{content.subtitle}</SectorSubTitle>
+                <SectorDescription>{content.content}</SectorDescription>
+                <Button role='button'>{content.button}</Button>
+              </SectorContentContainer>
+              <SectorImageContainer>
+                <SectorImage src={content.src} alt={content.title} />
+            </SectorImageContainer>
+          </SectorContainer>
+        </motion.div>
+       
       ))}
-    </div>
+    </>
   )
 }
 
