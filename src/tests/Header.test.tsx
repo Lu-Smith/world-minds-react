@@ -24,7 +24,7 @@ describe('renders Header components correctly', () => {
       const discoverLink = screen.getByTestId('discover');
       expect(discoverLink).toBeVisible();
 
-      const galleryLink = screen.getByTestId('gallery');
+      const galleryLink = screen.getByTestId('transform');
       expect(galleryLink).toBeVisible();
 
       const contactLink = screen.getByTestId('contact');
