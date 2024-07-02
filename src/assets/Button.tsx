@@ -17,6 +17,17 @@ const ButtonElement = styled.button`
   &:hover {
     background: #781E36;
   }
+
+  @media (max-width: 768px) {
+    font-size: 0.7em;
+    padding: 0.8em 1.6em;
+    letter-spacing: 1px;
+  }
+
+   @media (max-width: 480px) {
+    font-size: 0.6em;
+    padding: 0.7em 1.5em;
+  }
 `;
 
 
