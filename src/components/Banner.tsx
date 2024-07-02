@@ -35,6 +35,14 @@ const BannerTitle = styled.h1`
   font-size: 1.8em;
   font-family: "Playwrite US Modern", cursive;
   letter-spacing: 1px;
+
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1em;
+  }
 `;
 
 const BannerSubTitle = styled.h2`
@@ -43,6 +51,14 @@ const BannerSubTitle = styled.h2`
   font-style: italic;
   font-weight: 300;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7em;
+  }
 `;
 
 
