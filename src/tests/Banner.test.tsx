@@ -28,7 +28,7 @@ describe('renders Banner components correctly', () => {
     it('renders the BannerTitle', () => {
       render(<Banner />);
   
-      const bannerTitle = screen.getByText('Welcome to World Minds');
+      const bannerTitle = screen.getByRole('title');
       expect(bannerTitle).toBeInTheDocument();
       expect(bannerTitle.tagName).toBe('H1');
       expect(bannerTitle).toHaveStyle('font-size: 1.8em');
