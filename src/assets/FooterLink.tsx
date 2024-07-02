@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { motion } from "framer-motion";
 
@@ -13,6 +13,14 @@ const FooterLinkElement = styled.a`
   &:hover {
     color: #668ba4; 
   }
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.9em;
+  }
 `;
 
 interface FooterLinkProps {
@@ -23,10 +31,28 @@ interface FooterLinkProps {
 }
 
 const FooterLink: React.FC<FooterLinkProps> = ({ href, target, children, role }) => {
+
+  const [hoverY, setHoverY] = useState(-15);  
+
+  useEffect(() => {
+    const updateHoverY = () => {
+      if (window.innerWidth <= 768) {
+        setHoverY(-8);
+      } else {
+        setHoverY(-15);
+      }
+    };
+
+    updateHoverY();
+    window.addEventListener('resize', updateHoverY);
+
+    return () => window.removeEventListener('resize', updateHoverY);
+  }, []);
+
   return (
     <motion.div
     initial={{ scale: 1, y: 0, opacity: 1 }}
-    whileHover={{ scale: 1.2, y: -15, opacity: 0.9 }}
+    whileHover={{ scale: 1.2, y: hoverY, opacity: 0.9 }}
     transition={{ duration: 0.6 }}>
       <FooterLinkElement href={href} target={target} role={role}>
         {children}
