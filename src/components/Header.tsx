@@ -98,6 +98,7 @@ const MenuLink = styled.li`
 `;
 
 const Header: React.FC = () => {
+
   return (
     <HeaderContainer>
       <LogoContainer role='logoContainer'>
