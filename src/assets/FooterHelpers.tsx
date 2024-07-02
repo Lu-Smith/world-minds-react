@@ -11,6 +11,14 @@ const HelpersWrapper = styled.div`
   background: #233142;
   max-width: 900px;
   margin: 0 auto;
+
+  @media (max-width: 786px) {
+    font-size: 0.8em;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.7em;
+  }
 `;
 
 const ContactContainer = styled.ul`
