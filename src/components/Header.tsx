@@ -121,7 +121,7 @@ const Header: React.FC = () => {
         <Menu data-testid='menu'>
           <MenuLink data-testid='about'>About</MenuLink>
           <MenuLink data-testid='discover'>Discover</MenuLink>
-          <MenuLink data-testid='gallery'>Gallery</MenuLink>
+          <MenuLink data-testid='transform'>Transform</MenuLink>
           <MenuLink data-testid='contact'>Contact</MenuLink>
           <MenuLink className='joinButton'><Button role='join'>Join</Button></MenuLink>
         </Menu>
