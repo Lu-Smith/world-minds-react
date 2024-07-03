@@ -79,7 +79,7 @@ const BannerSubTitle = styled.h2`
 
 const Banner: React.FC = () => {
   return (
-    <BannerImageContainer role='bannerImageContainer'>
+    <BannerImageContainer role='bannerImageContainer' id='HOME'>
       <BannerImage src={BannerVideo} autoPlay loop muted />
       <BannerContentContainer>
         <BannerTitle role='title'>Welcome to 
