@@ -76,8 +76,16 @@ const BannerSubTitle = styled.h2`
   }
 `;
 
-
 const Banner: React.FC = () => {
+  const handleScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset 
+      - 260;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+
   return (
     <BannerImageContainer role='bannerImageContainer' id='HOME'>
       <BannerImage src={BannerVideo} autoPlay loop muted />
@@ -94,7 +102,10 @@ const Banner: React.FC = () => {
           </span>
         </BannerTitle>
         <BannerSubTitle>Open your mind and find yourself</BannerSubTitle>
-        <Button role='join'>Get in touch</Button>
+        <Button 
+        role='join' 
+        onClick={() => handleScrollTo('CONTACT US')}       
+        >Get in touch</Button>
       </BannerContentContainer>
     </BannerImageContainer>
   )
