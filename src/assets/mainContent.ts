@@ -5,7 +5,6 @@ import Collaborate from './media/undraw_design_team_re_gh2d.svg';
 import Ideas from './media/undraw_ideas_flow_re_bmea.svg';
 import Share from './media/undraw_ideas_re_7twj.svg';
 
-
 const mainContent = [
     {
         title: 'INVEST IN MINDS',
@@ -36,6 +35,13 @@ const mainContent = [
         src: Collaborate,
     },
     {
+        title: 'SUSTAINABLE FUTURE',
+        subtitle: 'Innovate for Good',
+        content: 'Sustainability is at the core of our mission. We encourage projects and ideas that contribute to a sustainable future. Let’s work together to create solutions that benefit both people and the planet.',
+        button: 'Discover More',
+        src: Share,
+    },
+    {
         title: 'COLLABORATE AND GROW',
         subtitle: 'Build Strong Networks',
         content: 'Collaboration is key to growth and success. Connect with like-minded individuals and organizations to share knowledge, resources, and support. Join a community that fosters teamwork and collective advancement.',
@@ -43,12 +49,9 @@ const mainContent = [
         src: Ideas,
     },
     {
-        title: 'SUSTAINABLE FUTURE',
-        subtitle: 'Innovate for Good',
-        content: 'Sustainability is at the core of our mission. We encourage projects and ideas that contribute to a sustainable future. Let’s work together to create solutions that benefit both people and the planet.',
-        button: 'Discover More',
-        src: Share,
-    }
+        title: 'CONTACT US',
+        subtitle: 'Open your mind and find your Universe',
+    },
 ]
 
 export default mainContent;
