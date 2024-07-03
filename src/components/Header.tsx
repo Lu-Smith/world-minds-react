@@ -115,7 +115,9 @@ const Header: React.FC = () => {
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset 
+      - 260;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
   };
 
@@ -130,6 +132,7 @@ const Header: React.FC = () => {
           animate={{opacity: 1, y: 0}}
           whileHover={{scale: 0.5}}
           transition={{duration: 1}}
+          onClick={() => handleScrollTo('HOME')}
         >
           <BiWorld />
         </motion.div>
@@ -141,9 +144,9 @@ const Header: React.FC = () => {
         <Menu data-testid='menu'>
           <MenuLink data-testid='about'  onClick={() => handleScrollTo('INVEST IN MINDS')}>About</MenuLink>
           <MenuLink data-testid='invest' onClick={() => handleScrollTo('SUSTAINABLE FUTURE')}>Invest</MenuLink>
-          <MenuLink data-testid='technology' onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')} >Technology</MenuLink>
+          <MenuLink data-testid='technology' onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')}>Technology</MenuLink>
           <MenuLink data-testid='contact'>Contact</MenuLink>
-          <MenuLink className='joinButton'><Button role='join'>Join</Button></MenuLink>
+          <MenuLink className='joinButton' onClick={() => handleScrollTo('COLLABORATE AND GROW')}><Button role='join'>Join</Button></MenuLink>
         </Menu>
       </MenuContainer>
     </HeaderContainer>
