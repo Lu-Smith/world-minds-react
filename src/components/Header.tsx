@@ -12,15 +12,15 @@ const HeaderContainer = styled.div<{ $isBlackBackground: boolean }>`
   gap: 10px;
   width: 100vw;
   color: white;
-  padding: 0 30px;
+  padding: 10px 30px;
   background-color: ${(props) => (props.$isBlackBackground ? 'black' : 'transparent')};
 
   @media (max-width: 768px) {
-    padding: 0 20px;
+    padding: 10px 20px;
   }
 
   @media (max-width: 480px) {
-    padding: 0 15px;
+    padding: 10px 15px;
   }
 `;
 
@@ -116,6 +116,7 @@ const MenuLink = styled.li<{ $isActive: boolean }>`
 
 const Header: React.FC = () => {
   const [linkUnderline, setLinkUnderline] = useState<string>('');
+  const [isBlackBackground, setIsBlackBackground] = useState<boolean>(false);
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -127,25 +128,36 @@ const Header: React.FC = () => {
 
     if (id === 'INVEST IN MINDS') {
       setLinkUnderline('about');
+      setIsBlackBackground(true);
     } else if (id === 'SUSTAINABLE FUTURE') {
       setLinkUnderline('invest');
+      setIsBlackBackground(true);
     } else if (id === 'TECHNOLOGY ADVANCEMENT') {
       setLinkUnderline('technology');
+      setIsBlackBackground(true);
     } else if (id === 'CONTACT US') {
       setLinkUnderline('contact');
+      setIsBlackBackground(true);
+    } else if (id === 'EXPLORE NEW IDEAS') {
+      setLinkUnderline('explore');
+      setIsBlackBackground(true);
+    } else if (id === 'PERSONAL GROWTH') {
+      setLinkUnderline('personal');
+      setIsBlackBackground(true);
+    } else if (id === 'COLLABORATE AND GROW') {
+      setLinkUnderline('colaborate');
+      setIsBlackBackground(true);
+    } else if (id === 'Home') {
+      setIsBlackBackground(false);
     } else {
       setLinkUnderline('');
-    }
-    
-    if (id !== '') {
-      setLinkUnderline('blackBackground');
-    }
-   
+      setIsBlackBackground(false);
+    }   
   };
 
   return (
     <HeaderContainer
-    $isBlackBackground={linkUnderline === 'blackBackground'}>
+    $isBlackBackground={isBlackBackground === true}>
       <LogoContainer role='logoContainer'>
         <Title data-testid='logo1'>
           W
@@ -174,19 +186,19 @@ const Header: React.FC = () => {
           <MenuLink 
           data-testid='invest' 
           onClick={() => handleScrollTo('SUSTAINABLE FUTURE')}
-          $isActive={linkUnderline === 'about'}>
+          $isActive={linkUnderline === 'invest'}>
             Invest
           </MenuLink>
           <MenuLink 
           data-testid='technology' 
           onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')}
-          $isActive={linkUnderline === 'about'}>
+          $isActive={linkUnderline === 'technology'}>
             Technology
           </MenuLink>
           <MenuLink 
           data-testid='contact'
           onClick={() => handleScrollTo('CONTACT US')}
-          $isActive={linkUnderline === 'about'}>
+          $isActive={linkUnderline === 'contact'}>
             Contact
           </MenuLink>
           <MenuLink 
