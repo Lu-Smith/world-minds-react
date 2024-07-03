@@ -30,14 +30,21 @@ const ButtonElement = styled.button`
   }
 `;
 
+interface ButtonProps {
+  onClick?: () => void;
+  children: string;
+  role?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
 
-const Button: React.FC<{  onClick?: () => void, children: string, role: string }> = ({ onClick, children, role }) => {
+
+const Button: React.FC<ButtonProps> = ({ onClick, children, role, type }) => {
   return (
     <motion.div
            initial={{ scale: 1, opacity: 1 }}
            whileHover={{ scale: 0.9, opacity: 0.8 }}
            transition={{ duration: 0.6 }}>
-      <ButtonElement onClick={onClick} role={role}>{children}</ButtonElement>
+      <ButtonElement onClick={onClick} role={role} type={type} >{children}</ButtonElement>
     </motion.div>
   )
 }
