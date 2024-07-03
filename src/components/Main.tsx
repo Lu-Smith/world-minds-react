@@ -4,9 +4,9 @@ import Button from '../assets/Button';
 import mainContent from '../assets/mainContent';
 import { motion } from "framer-motion";
 
-const SectorContainer = styled.div<{ reverse?: string }>`
+const SectorContainer = styled.div<{ $reverse?: boolean }>`
   display: flex;
-  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
+  flex-direction: ${({ $reverse }) => ($reverse ? 'row-reverse' : 'row')};
   align-items: center;
   justify-content: space-around;
   gap: 20px;
@@ -18,10 +18,10 @@ const SectorContainer = styled.div<{ reverse?: string }>`
   border: 2px solid #668ba4;
   border-radius: 20px;
   margin-bottom: 20px;
-  background: ${({ reverse }) => (reverse ? '#233142' : 'none')};
+  background: ${({ $reverse }) => ($reverse ? '#233142' : 'none')};
 
   @media (max-width: 768px) {
-    flex-direction: ${({ reverse }) => (reverse ? 'column-reverse' : 'column')};
+    flex-direction: ${({ $reverse }) => ($reverse ? 'column-reverse' : 'column')};
     height: auto; 
     padding: 40px;
   }
@@ -45,8 +45,8 @@ const SectorTitle = styled.h2`
   }
 `;
 
-const SectorSubTitle = styled.h2<{ reverse?: string }>`
-  color: ${({ reverse }) => (reverse ? 'black' : '#2b2b91')};
+const SectorSubTitle = styled.h2<{ $reverse?: boolean }>`
+  color: ${({ $reverse }) => ($reverse ? 'black' : '#2b2b91')};
   font-size: 2em;
   text-align: left;
 
@@ -87,10 +87,10 @@ const Main: React.FC = () => {
           whileInView={{opacity: 1, scale: 1}}
           transition={{duration: 1}}
         >
-          <SectorContainer role='sector' reverse={index % 2 === 1 ? true.toString() : undefined}>
-              <SectorContentContainer >
+          <SectorContainer role='sector' $reverse={index % 2 === 1 ? true : undefined} id={content.title}>
+              <SectorContentContainer>
                 <SectorTitle>{content.title}</SectorTitle>
-                <SectorSubTitle reverse={index % 2 === 1 ? true.toString() : undefined}>{content.subtitle}</SectorSubTitle>
+                <SectorSubTitle $reverse={index % 2 === 1 ? true : undefined}>{content.subtitle}</SectorSubTitle>
                 <SectorDescription>{content.content}</SectorDescription>
                 <Button role='button'>{content.button}</Button>
               </SectorContentContainer>
@@ -99,7 +99,6 @@ const Main: React.FC = () => {
             </SectorImageContainer>
           </SectorContainer>
         </motion.div>
-       
       ))}
     </>
   )

@@ -21,10 +21,10 @@ describe('renders Header components correctly', () => {
       const aboutLink = screen.getByTestId('about');
       expect(aboutLink).toBeVisible();
 
-      const discoverLink = screen.getByTestId('discover');
+      const discoverLink = screen.getByTestId('invest');
       expect(discoverLink).toBeVisible();
 
-      const galleryLink = screen.getByTestId('transform');
+      const galleryLink = screen.getByTestId('technology');
       expect(galleryLink).toBeVisible();
 
       const contactLink = screen.getByTestId('contact');

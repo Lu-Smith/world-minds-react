@@ -13,6 +13,14 @@ const HeaderContainer = styled.div`
   width: 100vw;
   color: white;
   padding: 0 30px;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 15px;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -28,6 +36,11 @@ const LogoContainer = styled.div`
 
     &:hover {
       color: #781E36;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 15px;
+      padding-top: 0px;
     }
   }
 `;
@@ -99,6 +112,13 @@ const MenuLink = styled.li`
 
 const Header: React.FC = () => {
 
+  const handleScrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <HeaderContainer>
       <LogoContainer role='logoContainer'>
@@ -119,9 +139,9 @@ const Header: React.FC = () => {
       </LogoContainer>
       <MenuContainer role='menuContainer'>
         <Menu data-testid='menu'>
-          <MenuLink data-testid='about'>About</MenuLink>
-          <MenuLink data-testid='discover'>Discover</MenuLink>
-          <MenuLink data-testid='transform'>Transform</MenuLink>
+          <MenuLink data-testid='about'  onClick={() => handleScrollTo('INVEST IN MINDS')}>About</MenuLink>
+          <MenuLink data-testid='invest' onClick={() => handleScrollTo('SUSTAINABLE FUTURE')}>Invest</MenuLink>
+          <MenuLink data-testid='technology' onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')} >Technology</MenuLink>
           <MenuLink data-testid='contact'>Contact</MenuLink>
           <MenuLink className='joinButton'><Button role='join'>Join</Button></MenuLink>
         </Menu>
