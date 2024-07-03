@@ -65,8 +65,8 @@ const FooterHelpers: React.FC = () => {
     <HelpersWrapper role='footerHelpers' >
       <ContactContainer data-testid='contactContainer'>
         <ContactLi role='contactLink'>Contact us</ContactLi>
-        <ContactLi data-testid='phoneNumber'>+1-543-123-4567</ContactLi>
-        <ContactLi data-testid='email'>example@worldminds.com</ContactLi>
+        <ContactLi data-testid='phoneNumber'>+7863734874</ContactLi>
+        <ContactLi data-testid='email'>lunasmithart@gmail.com</ContactLi>
       </ContactContainer>
       <HelpersContainer data-testid='helpersContainer'>
         <ListLi role='homeLink'>About Us</ListLi>
