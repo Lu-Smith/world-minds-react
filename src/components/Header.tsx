@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Button from '../assets/Button';
 import { BiWorld } from "react-icons/bi";
@@ -126,6 +126,10 @@ const Header: React.FC = () => {
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
 
+    updateLinkUnderline(id);  
+  };
+
+  const updateLinkUnderline = (id: string) => {
     if (id === 'INVEST IN MINDS') {
       setLinkUnderline('about');
       setIsBlackBackground(true);
@@ -152,8 +156,30 @@ const Header: React.FC = () => {
     } else {
       setLinkUnderline('');
       setIsBlackBackground(false);
-    }   
+    } 
+  }
+
+
+  const handleScroll = () => {
+    const sections = document.querySelectorAll('[id]');
+    let currentSection = '';
+
+    sections.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentSection = section.id;
+      }
+    });
+
+    updateLinkUnderline(currentSection);
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <HeaderContainer
