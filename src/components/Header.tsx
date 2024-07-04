@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../assets/Button';
 import { BiWorld } from "react-icons/bi";
 import { motion } from "framer-motion";
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const HeaderContainer = styled.div<{ $isBlackBackground: boolean }>`
   display: flex;
@@ -17,10 +18,6 @@ const HeaderContainer = styled.div<{ $isBlackBackground: boolean }>`
 
   @media (max-width: 768px) {
     padding: 10px 20px;
-  }
-
-  @media (max-width: 480px) {
-    padding: 10px 15px;
   }
 `;
 
@@ -56,9 +53,6 @@ const Title = styled.h1`
     font-size: 1.3em;
   }
 
-  @media (max-width: 480px) {
-    font-size: 0.8em;
-  }
 `;
 
 const MenuContainer = styled.div`
@@ -66,6 +60,10 @@ const MenuContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Menu = styled.ul`
@@ -114,9 +112,43 @@ const MenuLink = styled.li<{ $isActive: boolean }>`
   }
 `;
 
+const HamburgerIcon = styled.div`
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const MobileMenu = styled(Menu)<{ open: boolean }>`
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    background-color: black;
+    width: 100%;
+    max-width: 250px;
+    padding: 20px;
+    transform: ${(props) => (props.open ? 'translateY(0)' : 'translateY(-150%)')};
+    transition: transform 0.3s ease-in-out;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 0 auto;
+    }
+`;
+
 const Header: React.FC = () => {
   const [linkUnderline, setLinkUnderline] = useState<string>('');
   const [isBlackBackground, setIsBlackBackground] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const handleScrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -126,6 +158,7 @@ const Header: React.FC = () => {
       window.scrollTo({ top: offsetTop, behavior: 'smooth' });
     }
 
+    setMenuOpen(false);
     updateLinkUnderline(id);  
   };
 
@@ -159,22 +192,20 @@ const Header: React.FC = () => {
     } 
   }
 
-
-  const handleScroll = () => {
-    const sections = document.querySelectorAll('[id]');
-    let currentSection = '';
-
-    sections.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-        currentSection = section.id;
-      }
-    });
-
-    updateLinkUnderline(currentSection);
-  };
-
   useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll('[id]');
+      let currentSection = '';
+  
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+          currentSection = section.id;
+        }
+      });
+  
+      updateLinkUnderline(currentSection);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -201,6 +232,9 @@ const Header: React.FC = () => {
           rld Minds
         </Title>
       </LogoContainer>
+      <HamburgerIcon onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <FaTimes /> : <FaBars />}
+      </HamburgerIcon>
       <MenuContainer role='menuContainer'>
         <Menu data-testid='menu'>
           <MenuLink 
@@ -234,7 +268,45 @@ const Header: React.FC = () => {
             <Button role='join' type='button'>Join</Button>
           </MenuLink>
         </Menu>
-      </MenuContainer>
+        </MenuContainer>
+        <MobileMenu open={menuOpen}>
+          <MenuLink
+            data-testid="about"
+            onClick={() => handleScrollTo('INVEST IN MINDS')}
+            $isActive={linkUnderline === 'about'}
+          >
+            About
+          </MenuLink>
+          <MenuLink
+            data-testid="invest"
+            onClick={() => handleScrollTo('SUSTAINABLE FUTURE')}
+            $isActive={linkUnderline === 'invest'}
+          >
+            Invest
+          </MenuLink>
+          <MenuLink
+            data-testid="technology"
+            onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')}
+            $isActive={linkUnderline === 'technology'}
+          >
+            Technology
+          </MenuLink>
+          <MenuLink
+            data-testid="contact"
+            onClick={() => handleScrollTo('CONTACT US')}
+            $isActive={linkUnderline === 'contact'}
+          >
+            Contact
+          </MenuLink>
+          <MenuLink
+            className="joinButton"
+            onClick={() => handleScrollTo('COLLABORATE AND GROW')}
+            $isActive={linkUnderline === 'join'}
+          >
+            <Button role="join" type="button">Join</Button>
+          </MenuLink>
+        </MobileMenu>
+  
     </HeaderContainer>
   )
 }
