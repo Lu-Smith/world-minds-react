@@ -133,28 +133,28 @@ const Header: React.FC = () => {
         </MenuContainer>
         <MobileMenu open={menuOpen}>
           <MenuLink
-            data-testid="about"
+            data-testid="mobile-about"
             onClick={() => handleScrollTo('INVEST IN MINDS')}
             $isActive={linkUnderline === 'about'}
           >
             About
           </MenuLink>
           <MenuLink
-            data-testid="invest"
+            data-testid="mobile-invest"
             onClick={() => handleScrollTo('SUSTAINABLE FUTURE')}
             $isActive={linkUnderline === 'invest'}
           >
             Invest
           </MenuLink>
           <MenuLink
-            data-testid="technology"
+            data-testid="mobile-technology"
             onClick={() => handleScrollTo('TECHNOLOGY ADVANCEMENT')}
             $isActive={linkUnderline === 'technology'}
           >
             Technology
           </MenuLink>
           <MenuLink
-            data-testid="contact"
+            data-testid="mobile-contact"
             onClick={() => handleScrollTo('CONTACT US')}
             $isActive={linkUnderline === 'contact'}
           >
