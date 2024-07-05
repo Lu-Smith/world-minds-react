@@ -30,6 +30,18 @@ describe('renders Header components correctly', () => {
       const contactLink = screen.getByTestId('contact');
       expect(contactLink).toBeVisible();
 
+      const aboutMobileLink = screen.getByTestId('mobile-about');
+      expect(aboutMobileLink).not.toBeVisible();
+
+      const discoverMobileLink = screen.getByTestId('mobile-invest');
+      expect(discoverMobileLink).not.toBeVisible();
+
+      const galleryMobileLink = screen.getByTestId('mobile-technology');
+      expect(galleryMobileLink).not.toBeVisible();
+
+      const contactMobileLink = screen.getByTestId('mobile-contact');
+      expect(contactMobileLink).not.toBeVisible();
+
       const joinButton = screen.getByRole('join');
       expect(joinButton).toBeVisible();
     });
