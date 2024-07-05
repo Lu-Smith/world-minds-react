@@ -5,7 +5,15 @@ import Collaborate from './media/undraw_design_team_re_gh2d.svg';
 import Ideas from './media/undraw_ideas_flow_re_bmea.svg';
 import Share from './media/undraw_ideas_re_7twj.svg';
 
-const mainContent = [
+export interface MainContentItem {
+    title: string;
+    subtitle?: string;
+    content?: string;
+    button?: string;
+    src?: string;
+  }
+
+const mainContent: MainContentItem[] = [
     {
         title: 'INVEST IN MINDS',
         subtitle: 'Empower Future Innovators',
