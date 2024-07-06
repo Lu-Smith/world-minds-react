@@ -18,6 +18,7 @@ export const SectorContainer = styled.div<{ $reverse?: boolean }>`
 
   &.formContainer {
     justify-content: center;
+    border: 2px solid #781E36;
   }
 
   @media (max-width: 768px) {
@@ -36,7 +37,22 @@ export const SectorContentContainer = styled.div`
   gap: 20px;
 
   &.formContentContainer {
-    align-items: center;
+    align-items: center;;
+    max-width: 300px;
+    margin-left: 15%;
+
+    @media (max-width: 1300px) {
+      margin-left: 10%;
+    }
+
+    @media (max-width: 1200px) {
+      margin-left: 5%;
+    }
+
+    @media (max-width: 1000px) {
+      max-width: 100%;
+      margin-left: 0;
+    }
   }
 `;
 
@@ -58,6 +74,7 @@ export const SectorSubTitle = styled.h2<{ $reverse?: boolean }>`
     font-size: 0.8em;
     font-style: italic;
     color: #781E36;
+    text-align: center;
   }
 
   @media (max-width: 768px) {
