@@ -38,7 +38,6 @@ const Main: React.FC = () => {
               </SectorImageContainer> : 
               <ContactForm/>
               }
-              
           </SectorContainer>
         </motion.div>
       ))}
